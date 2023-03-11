@@ -1,7 +1,10 @@
 package com.nastyzera.cloudgateway;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
+import io.github.resilience4j.timelimiter.TimeLimiterConfig;
 import reactor.core.publisher.Mono;
+
+import java.time.Duration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,7 +33,9 @@ public class CloudGatewayApplication {
 						.circuitBreakerConfig(
 								CircuitBreakerConfig.ofDefaults()
 
-						)
+						).timeLimiterConfig(TimeLimiterConfig
+						.custom()
+						.timeoutDuration(Duration.ofSeconds(60)).build())
 						.build()
 		);
 	}
