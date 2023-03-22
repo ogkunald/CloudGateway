@@ -6,6 +6,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreakerFactory;
@@ -39,4 +40,5 @@ public class CloudGatewayApplication {
 						.build()
 		);
 	}
+
 }
